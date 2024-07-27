@@ -56,7 +56,7 @@ namespace WpfGridComboOrnek
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            urunler[0].Adi = "Ürün1 Yeni Adi ";
+            //urunler[0].Adi = "Ürün1 Yeni Adi ";
            // urunler.RemoveAt(0);
             //urunler.Add(new Urun { Id = 6, Adi = "ürün 6", KategoriId = 6 });
         }

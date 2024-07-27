@@ -26,7 +26,14 @@
         </Grid.RowDefinitions>
         <DataGrid x:Name="gridUrunler" CanUserAddRows="False" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Header="Ürün No" Binding="{Binding Id}"/>
+                <DataGridTemplateColumn Header="Ürün No" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <ItemContainerTemplate>
+                            <TextBlock Text="{Binding Id}"/>
+                        </ItemContainerTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
                 <DataGridTextColumn Width="2*" Header="Ürün Adı" Binding="{Binding Adi}"/>
                 
             </DataGrid.Columns>
@@ -47,11 +54,11 @@
             <TextBlock Text="Kategori" Grid.Row="2"/>
 
             <TextBlock Grid.Column="1" Text="{Binding Id}"/>
-            <TextBox Grid.Column="1" Grid.Row="1" Style="{StaticResource txtbox}" Text="{Binding Adi}"/>
+            <TextBox Grid.Column="1" Grid.Row="1" Style="{StaticResource txtbox}" Text="{Binding Adi,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
             <ComboBox Grid.Column="1" Grid.Row="2" x:Name="cmbKategoriler"
-                      SelectedValue="{Binding KategoriId}"/>
+                      SelectedValue="{Binding KategoriId,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
 
-            <Button Content="SonDurum" Click="Button_Click" Grid.Row="3"/>
+            
         </Grid>
 
     </Grid>
